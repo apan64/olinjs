@@ -1,0 +1,8 @@
+<h1>Cats!</h1>
+<ul>
+<h3>Displaying {{displayType}}</h3>
+<h4>{{optional}}</h4>
+{{#each cats}}
+  <li>{{this.name}} is a {{this.age}}-year old cat with the colors {{#each this.colors}}{{this}} {{/each}}.</li>
+{{/each}}
+</ul>
