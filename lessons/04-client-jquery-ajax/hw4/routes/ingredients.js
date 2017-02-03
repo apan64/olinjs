@@ -1,38 +1,40 @@
 var Ingredients = require('../models/ingredientModel');
 var routes = {};
 
-routes.ingredients = function(req, res){
+routes.ingredients = function(req, res){	// renders the page on initial load
 	Ingredients.find(function(err, ingredients){
 		res.render('home', {'ingredients': ingredients});
 	});
 };
 
-routes.ingredientsAdd = function(req, res){
-
-	// when on ingredients/add and you click the add button, it attempts to go to ingredients/ingredients/add, need to find a way to redirect the route ahead of time
+routes.ingredientsAdd = function(req, res){	// adds a new ingredient to the database and displays it
 	var newIngredient = new Ingredients({name: req.body.name, price: req.body.price, inStock: true});
 	newIngredient.save(function(err){
-		console.log(newIngredient);
 		if(err){console.log(err)};
 		Ingredients.find(function(err, ingredients){
-			// res.send({'ingredients': ingredients});
-			console.log(ingredients);
-			res.status(200).send(ingredients);
+			res.status(200).send(newIngredient);
 			return;
 		});
 	});
 };
 
-routes.ingredientsOut = function(req, res){
-	// do not know how to define the name for each button in the handlebars file in a useful way
-	// do not know how to find name of button pressed
-	// console.log(req.query.price)
-
+routes.ingredientsOut = function(req, res){	// hides the ingredient and sets its inStock value to false
+	Ingredients.findOne({_id: req.body.id}, function(err, doc){
+		if(err){console.log(err)};
+		doc.inStock = false;
+		doc.save();
+	});
+	return;
 };
 
-routes.ingredientsEdit = function(req, res){
-	// do not know how to define the name for each button in the handlebars file in a useful way, or how to extract values from text fields created using {{#each}} in handlebars
-
+routes.ingredientsEdit = function(req, res){	// edits the name and price of an ingredient based on text field inputs when edit button is pressed
+	Ingredients.findOne({_id: req.body.id}, function(err, doc){
+		if(err){console.log(err)};
+		doc.name = req.body.name;
+		doc.price = req.body.price;
+		doc.save();
+	});
+	return;
 };
 
 module.exports = routes;

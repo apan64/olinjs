@@ -1,20 +1,16 @@
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
 
 <h1>Welcome to Jessica's Burgers!</h1>
 
 <ul id = 'ingredientList'>
+
 {{#each ingredients}}
-  <input type="text" value={{this.name}}><input type="text" value={{this.namePrice}}><br>
-  <form id="ajax-form" action="ingredients/out" method="Out"><button type = 'button' name = {{this.nameOut}}>Out of stock</button></form><form id="ajax-form" action="ingredients/edit" method="Edit"><button type = 'button' name = {{this.nameEdit}}>Edit</button></form><br>
+<div id = {{this._id}} class = "ingredientItem"><input id = "name" type="text" value={{this.name}}><input id = "price" type="text" value={{this.price}}><br><form class = "ajax-form-out" id= {{this._id}}><input type = "submit" value = "Out of stock"></input></form><form class = "ajax-form-edit" id={{this._id}}><input type = "submit" value = "Edit"></input></form><br></div>
 {{/each}}
 </ul>
+<div class = "ingredientItem" style = "display: none"><input id = "name" type="text"><input id = "price" type="text"><form class = "ajax-form-out"><input type = "submit" value = "Out of stock"></form><form class = "ajax-form-edit"><input type = "submit" value = "Edit"></form></div>
 
-<!-- <li id ="template" style="">
-  <input type="text" value={{this.name}}><input type="text" value={{this.namePrice}}><br>
-  <form id="ajax-form" action="ingredients/out" method="Out"><button type = 'button' name = {{this.nameOut}}>Out of stock</button></form><form id="ajax-form" action="ingredients/edit" method="Edit"><button type = 'button' name = {{this.nameEdit}}>Edit</button></form><br>
-</li> -->
-
-<form id = 'ajax-form' action = 'postIngredient' method = 'POST'>
+<form id = 'ajax-form'>
 Item: <input type = 'text' name = 'addName'><br>
 Price: <input type = 'text' name = 'addPrice'><br>
 <input type = 'submit' value = 'Add'>

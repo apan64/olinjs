@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', index.home);
 app.get('/ingredients', ingredients.ingredients);
 app.post('/postIngredient', ingredients.ingredientsAdd);
-app.post('/ingredients/out', ingredients.ingredientsOut);
-app.post('/ingredients/edit', ingredients.ingredientsEdit);
+app.post('/outIngredient', ingredients.ingredientsOut);
+app.post('/editIngredient', ingredients.ingredientsEdit);
 
 app.listen(3000);
