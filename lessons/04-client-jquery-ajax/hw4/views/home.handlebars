@@ -1,0 +1,21 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+<h1>Welcome to Jessica's Burgers!</h1>
+
+<ul id = 'ingredientList'>
+{{#each ingredients}}
+  <input type="text" value={{this.name}}><input type="text" value={{this.namePrice}}><br>
+  <form id="ajax-form" action="ingredients/out" method="Out"><button type = 'button' name = {{this.nameOut}}>Out of stock</button></form><form id="ajax-form" action="ingredients/edit" method="Edit"><button type = 'button' name = {{this.nameEdit}}>Edit</button></form><br>
+{{/each}}
+</ul>
+
+<!-- <li id ="template" style="">
+  <input type="text" value={{this.name}}><input type="text" value={{this.namePrice}}><br>
+  <form id="ajax-form" action="ingredients/out" method="Out"><button type = 'button' name = {{this.nameOut}}>Out of stock</button></form><form id="ajax-form" action="ingredients/edit" method="Edit"><button type = 'button' name = {{this.nameEdit}}>Edit</button></form><br>
+</li> -->
+
+<form id = 'ajax-form' action = 'postIngredient' method = 'POST'>
+Item: <input type = 'text' name = 'addName'><br>
+Price: <input type = 'text' name = 'addPrice'><br>
+<input type = 'submit' value = 'Add'>
+</form>
