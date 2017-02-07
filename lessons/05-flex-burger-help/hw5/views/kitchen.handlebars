@@ -1,0 +1,8 @@
+<h1>Welcome to Jessica's Burgers's Kitchen!</h1>
+
+
+<ul id = 'orderList'>
+{{#each orders}}
+<div id = {{this._id}} class = "singleOrder">{{this.ingredients}} - ${{this.price}}<br><form class = "orderForm" id = {{this._id}}><input type = "submit" value = "Completed"></form></div><br>
+{{/each}}
+</ul>
