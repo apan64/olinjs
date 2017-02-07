@@ -41,6 +41,7 @@ $ingredientsForm.submit(function(event) { // adds a new ingredient to the databa
     div.children()[1].value = data.price.toString();
     div.children()[2].id = data._id;
     div.children()[3].id = data._id;
+    div.show()
     $('#ingredientList').append(div);
   });
 });
