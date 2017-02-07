@@ -1,5 +1,6 @@
 var db = require('../fakeDatabase');
 
+//You could pull these lists out in a separate file and import them into this file
 var names = ['Peter', 'David', 'John', 'Adam', 'Juan', 'Jag', 'Kyle']; // array of names to use in cat generation
 var colors = ['blue', 'red', 'green', 'orange', 'pink', 'yellow', 'brown', 'black']; // array of colors to use in cat generation
 
