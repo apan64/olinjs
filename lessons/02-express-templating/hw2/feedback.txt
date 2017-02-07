@@ -1,0 +1,12 @@
+Homework Feedback:
+
+Functionality:
+- Completion: All of the features work!! Nice job. (20/20)
+- Bug Free: The app does seem bug free. Do think about maybe a way to log errors or let the user know if the color that the chose to sort by doesn't exist, so that they know it's not a bug in your sorting. (10/10)
+
+Quality:
+- Good Coding Practices: Other than some good styling practices that you could incorporate (which I commented in your code), everything looks good. Your naming conventions are good, just think about having commonly used functions into it's own function, so that you can easily debug things. (9/10)
+- Readability: Functions and variables are named well, good comments and lines are not too long. (10/10)
+
+
+Good work!!!!!!
