@@ -1,3 +1,4 @@
+//Remove files that aren't being used in this application
 var home = function(req, res){
   res.render("home", {"classes": [
      {name:"Olin.js", teacher:"Me"},
