@@ -1,0 +1,63 @@
+html {
+	margin: 10px;
+	padding: 10px;
+}
+
+body {
+	font: 100% georgia, sans-serif;
+	color: #555753; 
+}
+
+h1 {
+	color: blue;
+	margin-bottom: 30px;
+}
+
+h2 {
+	text-align: right;
+}
+
+
+ul {
+	margin-top: 20px;
+}
+
+#wrapper {
+	width: 1600px;
+}
+
+#dongDiv{
+	float: left;
+	width: 70%;
+}
+
+#userDiv {
+	float: right;
+	width: 30%;
+}
+
+#log {
+	float: right;
+}
+
+#login {
+	float: right;
+}
+
+.users {
+	float: right;
+	width: 20%;
+	background-color: #eaeaaa;
+	text-align: left;
+}
+
+.dongs {
+	background-color: #eaeaea;
+	/*width: 300px;*/
+}
+
+.remove {
+	background-color: #eaeaea;
+	/*width: 300px;*/
+}
+

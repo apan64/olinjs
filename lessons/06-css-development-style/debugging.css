@@ -1,6 +1,6 @@
 html {
-	margin: 0;
-	padding: 0;
+	margin: 10;
+	padding: 10;
 }
 
 body {
@@ -30,7 +30,7 @@ h2 {
 h3 { 
 	font: italic normal 1.4em georgia, sans-serif;
 	letter-spacing: 1px; 
-	margin-bottom: 0; 
+	margin-bottom: 10; 
 	color: #7D775C;
 }
 
@@ -48,6 +48,9 @@ a:hover, a:focus, a:active {
 	text-decoration: underline; 
 	color: #9685BA;
 }
+li {
+	margin-bottom: 10;
+}
 
 .summary {
 	width: 300px;
@@ -58,4 +61,8 @@ a:hover, a:focus, a:active {
 .summary p {
 	font: italic 1.1em/2.2 georgia; 
 	text-align: center;
+}
+.text p{
+	margin-top: 30;
+	line-height: 1.5;
 }

@@ -1,0 +1,36 @@
+<h1>Dingus</h1>
+<div id = 'wrapper'>
+<div id = "error"></div>
+
+<form id = "log">
+<input type = "submit" id = "logButton" value = "Login">
+</form>
+
+<div id = 'login'>
+<input id = 'logField' type = "text" name = "username" value = "Insert your dingus">
+</div>
+
+<div id = 'dongDiv'>
+<div id = 'create' style = "display: none">
+<form id = "createDong">
+<input id = "dong" name = "text" value = "Insert your dong here"><div id = 'hi'></div><br>
+<input type = "submit" value = "Post your dong">
+</form>
+</div>
+
+<ul id = "dongs">
+{{#each dongs}}
+<div id = {{this._id}} class = "dongs">{{this.dong}} -{{this.username}}</div><div class = 'removeDongs' id = {{this._id}}><form class = 'remove' id = {{this._id}}><input type = 'submit' id = {{this._id}} value = 'Remove' class = {{this.username}}></form></div><br>
+{{/each}}
+<div class = "dongs" style = "display: none" id = "hidden"></div><div class = 'removeDongs' style = 'display: none' id = 'hidden'><form class = 'remove' ><input type = 'submit' value = 'Remove' class = 'removeButton'></form></div></ul>
+</div>
+
+<div id = 'userDiv'>
+<h2>Users</h2>
+<ul id = "users">
+{{#each users}}
+<div id = {{this._id}} class = "users">{{this.username}}</div><br>
+{{/each}}
+<div class = "users" style = "display: none"><br></div>
+</ul>
+</div></div>

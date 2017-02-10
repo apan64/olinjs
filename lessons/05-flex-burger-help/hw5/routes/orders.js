@@ -27,7 +27,7 @@ routes.checkbox = function(req, res){	// route for when checkboxes are changed, 
 		}
 		console.log(total);
 		var ans = {tot: total};
-		res.send(ans);
+		res.status(200).send(ans);
 		return;
 	});
 };
@@ -40,7 +40,7 @@ routes.ordersAdd = function(req, res){	// route for submitting an order, adds th
 	total = 0;
 	newOrder.save(function(err){
 		if(err){console.log(err)};
-		res.sendStatus(200);
+		res.status(200);
 	});
 };
 
@@ -54,7 +54,7 @@ routes.remove = function(req, res){	// route for removing a completed order from
 	Orders.findOne({_id: req.body.id}).remove(function(err, order){
 		if(err){console.log(err);}
 	});
-	res.sendStatus(200);
+	res.status(200);
 };
 
 module.exports = routes;
