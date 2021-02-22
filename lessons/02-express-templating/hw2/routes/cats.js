@@ -1,5 +1,6 @@
 var db = require('../fakeDatabase');
 
+//You could pull these lists out in a separate file and import them into this file
 var names = ['Peter', 'David', 'John', 'Adam', 'Juan', 'Jag', 'Kyle']; // array of names to use in cat generation
 var colors = ['blue', 'red', 'green', 'orange', 'pink', 'yellow', 'brown', 'black']; // array of colors to use in cat generation
 
@@ -15,6 +16,8 @@ var cats = function(req, res){	// function to display all cats after sorting
 		}
 	}
 	db.data = cats;
+
+	//Try to be consistent in using double quotes or single quotes for string just for styling
 	res.render("cats", {"cats": db.getAll(), 'displayType': 'all sorted cats'});
 };
 
@@ -26,6 +29,8 @@ var newCat = function(req, res){	// function to randomly generate a cat and add 
 	var newestCat = {name: names[Math.floor(Math.random()*names.length)], age: Math.floor(Math.random() * 10), colors: colorList};	//randomly generating a cat
 	db.add(newestCat);
 	var cats = db.getAll();
+
+	//Since you also use this in your sortedCat function, you can have the following in a separate function that you call anytime you want to take cats list as an input and output a list of sorted cats
 	for(i = 0; i < cats.length; i++){	// sorting cats by age
 		for(j = i; j < cats.length; j++){
 			if(cats[j].age < cats[i].age){
@@ -36,6 +41,8 @@ var newCat = function(req, res){	// function to randomly generate a cat and add 
 		}
 	}
 	db.data = cats
+
+	//You could have a boolean for have hasOptional to dictate whether or not the optional text should show up, and then have an if statement in your handlebars only have a h4 tag with "Added a cat named {{this.newCat.name}} that is {{this.newCat.age}} - years old", so that the only thing you would have to pass into your render would be {"cats":db.getAll(), "newCat": newestCat, "hasOptional":true}. This will make it easier to be consistent amongst all of your res.renders. Plus, it's good practice to have long text that you want to show up to be in your handlebars, not in your js
 	res.render("cats", {"cats": db.getAll(), 'displayType': 'all cats', 'optional': 'Added a cat named ' + newestCat.name + ' that is ' + newestCat.age + '-years old!'});
 };
 
